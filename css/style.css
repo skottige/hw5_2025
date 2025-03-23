@@ -1,0 +1,234 @@
+/* Mobile View */
+
+/* Step 1 - Logo Animation with keyframes. */
+@keyframes logoAnimation {
+    /*
+    Starts at a width of 25px and grows to 475px.
+    Starts with an opacity of 0 and ends with an opacity of 1.
+    */
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* Takes 5 seconds and only happens when the page is loaded. */
+#logo {
+    animation: logoAnimation 5s ease-out forwards;
+}
+
+/* Step 2 - Body Font and Background. */
+body {
+    /* Uses the Poppins font (using Google fonts) with serif as a backup. */
+    font-family: "Poppins", serif;
+    /* Uses the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* Step 3 - Header Display. */
+header {
+    /* All instances use flex to match the example. */
+    display: flex;
+    /* Displays the logo and links one below the other. */
+    flex-direction: column;
+    /* Displays the logo and links in the middle of the header. */
+    align-items: center;
+}
+
+/* Step 4 - Navigation Links Display. */
+.nav_links {
+    /* Uses flex to match the example. */
+    display: flex;
+    /* Displays the links one below the other. */
+    flex-direction: column;
+}
+
+/* Step 5 - Visited Navigation Link Color. */
+a:visited {
+    /* Maintains the same color. */
+    color: #0000ED;
+}
+
+/* Step 6 - Direct Children Header Elements of the Card Class. */
+.card > header {
+    /* Sets background to #288088. */
+    background: #288088;
+    /* Adds solid 2px border using #45ADAD. */
+    border: solid 2px #45ADAD;
+    /* Adds 20px of padding on the top and the bottom. */
+    padding: 20px 0px;
+    /* Sets a 50px border-radius on the top left and right corners. */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Instances of the Card Class. */
+.card {
+    /* Resets the border radius. */
+    border-radius: 0px;
+    /* Sets a 50px border-radius on the top left and right corners of the card. */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step 7 - Card Class Display and Sizing. */
+.card{
+    /* Uses flex to match the example. */
+    display: flex;
+    /* Displays the card elements one below the other. */
+    flex-direction: column;
+    /* Sets flex-property to specify an initial “size” of 450px. */
+    flex-basis: 450px;
+    }
+
+/* Step 8 - Pricing Class Display. */
+.pricing {
+    /* Uses flex to match the example. */
+    display: flex;
+    /* Centers both horizontally and vertically. */
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* Step 9 - Gallery Class Styling. */
+.gallery img {
+    /* Sets a solid 10px border with a color of #50C7C7. */
+    border: solid 10px #50C7C7;
+    /* Sets a 10px margin on all four sides. */
+    margin: 10px;
+    /* Sets a width of 300px. */
+    width: 300px;
+}
+
+/* Step 10 - Gallery Class Display. */
+.gallery {
+    /* Uses flex to match the example. */
+    display: flex;
+    /* Ensures the changes for different screen sizes are not from using flex. */
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+/* Large Screen View */
+
+/* Sets minimum width of the screen to 900px */
+@media screen and (min-width: 900px) {
+
+    /* Step 11 - Header Display. */
+    header {
+        /* changes flex direction to match the example. */
+        flex-direction: row;
+        /* The logo is as far to the left as possible and the links are as far to the right as possible. */
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        /* Changes flex direction to match the example. */
+        flex-direction: row;
+    }
+
+    /* Step 12 - Pricing and Card Class Styling. */
+    .pricing {
+        /* Changes the wrap to match the example. */
+        flex-wrap: wrap;
+        /* Aligns items so the 2nd card is taller than the others to match the example. */
+        align-items: center;
+    }
+
+    .card {
+        /* Specify a “size” of 275px. */
+        flex-basis: 275px;
+    }
+
+    /* Step 13 - First Header Display. */
+    body > header {
+        /* Ensures it remains visible at the top of the screen even when the page is scrolled down. */
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    /* Esures the fixed header does not overlap the main content. */
+    main {
+        margin-top: 100px;
+    }
+
+}
+
+
+/* Reduced Motion */
+
+/* Step 14 - Removes logo animation if prefers-reduced-motion is selected. */
+@media screen and (prefers-reduced-motion: reduce) {
+
+    #logo {
+      animation: none;
+    }
+
+}
+
+
+/* Print View */
+
+@media print {
+
+    /* Step 15 and 16 - Body font and background. */
+    body {
+        /* Sets font to Arial with a backup value of Helvetica. */
+        font-family: Arial, Helvetica;
+        /* Removes background image. */
+        background-image: none;
+    }
+
+    /* Step 17 - Navigation Display. */
+    nav{
+        /* Sets Navigation width to 100% */
+        width: 100%;
+    }
+
+    .nav_links {
+        /* Changes flex direction to a row to match the example. */
+        flex-direction: row;
+        /* Adjust space between links to match the example. */
+        justify-content: space-around;
+    }
+
+    /* Step 18 - Pricing Class Styling. */
+    .pricing {
+        /* Aligns elements along the bottom */
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    /* Step 19 - Card Elements Styling. */
+    .card {
+        /* Sets a solid border 2px of #45ADDD. */
+        border: solid 2px #45ADDD;
+        /* Uses flex-basis of 325px. */
+        flex-basis: 325px;
+    }
+
+    /* Step 20 - Gallery Display. */
+    #gallery {
+        /* Hides the gallery heading but keeps the space. */
+        visibility: hidden;
+    }
+
+    .gallery {
+        /* Hides the gallery images. */
+        display: none;
+    }
+
+    /* Step 21 - Thumbs Up. */
+    /* Adds a thumbs up to the cards to match the example. */
+    .card ul li:nth-child(2)::after {
+        content: "👍";
+    }
+
+}
